@@ -5,10 +5,7 @@
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist"
-      },
-      "ignore": [
-        "node_modules"
-      ]
+      }
     }
   ]
 }
