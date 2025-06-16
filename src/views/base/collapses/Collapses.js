@@ -1,135 +1,89 @@
-import React, { useState } from 'react'
-import { CButton, CCard, CCardBody, CCardHeader, CCol, CCollapse, CRow } from '@coreui/react'
-import { DocsComponents, DocsExample } from 'src/components'
+import React from 'react'
+import { CCard, CCardHeader, CCardBody } from '@coreui/react'
+import { DocsLink } from 'src/components'
 
 const Collapses = () => {
-  const [visible, setVisible] = useState(false)
-  const [visibleHorizontal, setVisibleHorizontal] = useState(false)
-  const [visibleA, setVisibleA] = useState(false)
-  const [visibleB, setVisibleB] = useState(false)
-
   return (
-    <CRow>
-      <CCol xs={12}>
-        <DocsComponents href="components/collapse/" />
-        <CCard className="mb-4">
-          <CCardHeader>
-            <strong>React Collapse</strong>
-          </CCardHeader>
-          <CCardBody>
-            <p className="text-body-secondary small">You can use a link or a button component.</p>
-            <DocsExample href="components/collapse">
-              <CButton
-                color="primary"
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault()
-                  setVisible(!visible)
-                }}
-              >
-                Link
-              </CButton>
-              <CButton color="primary" onClick={() => setVisible(!visible)}>
-                Button
-              </CButton>
-              <CCollapse visible={visible}>
-                <CCard className="mt-3">
-                  <CCardBody>
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                    richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-                    anderson cred nesciunt sapiente ea proident.
-                  </CCardBody>
-                </CCard>
-              </CCollapse>
-            </DocsExample>
-          </CCardBody>
-        </CCard>
-      </CCol>
-      <CCol xs={12}>
-        <CCard className="mb-4">
-          <CCardHeader>
-            <strong>React Collapse</strong> <small> Horizontal</small>
-          </CCardHeader>
-          <CCardBody>
-            <p className="text-body-secondary small">You can use a link or a button component.</p>
-            <DocsExample href="components/collapse#horizontal">
-              <CButton
-                className="mb-3"
-                color="primary"
-                onClick={() => setVisibleHorizontal(!visibleHorizontal)}
-                aria-expanded={visibleHorizontal}
-                aria-controls="collapseWidthExample"
-              >
-                Button
-              </CButton>
-              <div style={{ minHeight: '120px' }}>
-                <CCollapse id="collapseWidthExample" horizontal visible={visibleHorizontal}>
-                  <CCard style={{ width: '300px' }}>
-                    <CCardBody>
-                      This is some placeholder content for a horizontal collapse. It&#39;s hidden by
-                      default and shown when triggered.
-                    </CCardBody>
-                  </CCard>
-                </CCollapse>
-              </div>
-            </DocsExample>
-          </CCardBody>
-        </CCard>
-      </CCol>
-      <CCol xs={12}>
-        <CCard className="mb-4">
-          <CCardHeader>
-            <strong>React Collapse</strong> <small> multi target</small>
-          </CCardHeader>
-          <CCardBody>
-            <p className="text-body-secondary small">
-              A <code>&lt;CButton&gt;</code> can show and hide multiple elements.
-            </p>
-            <DocsExample href="components/collapse#multiple-targets">
-              <CButton color="primary" onClick={() => setVisibleA(!visibleA)}>
-                Toggle first element
-              </CButton>
-              <CButton color="primary" onClick={() => setVisibleB(!visibleB)}>
-                Toggle second element
-              </CButton>
-              <CButton
-                color="primary"
-                onClick={() => {
-                  setVisibleA(!visibleA)
-                  setVisibleB(!visibleB)
-                }}
-              >
-                Toggle both elements
-              </CButton>
-              <CRow>
-                <CCol xs={6}>
-                  <CCollapse visible={visibleA}>
-                    <CCard className="mt-3">
-                      <CCardBody>
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                        richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-                        anderson cred nesciunt sapiente ea proident.
-                      </CCardBody>
-                    </CCard>
-                  </CCollapse>
-                </CCol>
-                <CCol xs={6}>
-                  <CCollapse visible={visibleB}>
-                    <CCard className="mt-3">
-                      <CCardBody>
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                        richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-                        anderson cred nesciunt sapiente ea proident.
-                      </CCardBody>
-                    </CCard>
-                  </CCollapse>
-                </CCol>
-              </CRow>
-            </DocsExample>
-          </CCardBody>
-        </CCard>
-      </CCol>
-    </CRow>
+    <>
+      <CCard className="mb-4">
+        <CCardHeader>Histórico de Controle de Rodízio</CCardHeader>
+        <CCardBody>
+          <p>Registros de rodízios realizados nos caminhões da frota.</p>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Placa do Caminhão</th>
+                <th>Data do Rodízio</th>
+                <th>Quilometragem Atual</th>
+                <th>Observações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ABC-1234</td>
+                <td>01/11/2024</td>
+                <td>200000</td>
+                <td>Rodízio completo realizado com sucesso.</td>
+              </tr>
+              <tr>
+                <td>DEF-5678</td>
+                <td>02/11/2024</td>
+                <td>205000</td>
+                <td>Rodízio parcial realizado, pneus dianteiros invertidos.</td>
+              </tr>
+              <tr>
+                <td>GHI-9012</td>
+                <td>03/11/2024</td>
+                <td>190000</td>
+                <td>Rodízio realizado antes de viagem longa.</td>
+              </tr>
+              <tr>
+                <td>JKL-3456</td>
+                <td>05/11/2024</td>
+                <td>210000</td>
+                <td>Pneus traseiros com desgaste médio.</td>
+              </tr>
+              <tr>
+                <td>MNO-7890</td>
+                <td>07/11/2024</td>
+                <td>220000</td>
+                <td>Rodízio completo, alinhamento realizado.</td>
+              </tr>
+              <tr>
+                <td>PQR-4321</td>
+                <td>08/11/2024</td>
+                <td>215000</td>
+                <td>Rodízio programado para inspeção preventiva.</td>
+              </tr>
+              <tr>
+                <td>STU-6543</td>
+                <td>10/11/2024</td>
+                <td>195000</td>
+                <td>Rodízio parcial devido a desgaste lateral.</td>
+              </tr>
+              <tr>
+                <td>VWX-0987</td>
+                <td>12/11/2024</td>
+                <td>225000</td>
+                <td>Rodízio realizado com observação de desgaste em pneus traseiros.</td>
+              </tr>
+              <tr>
+                <td>YZA-5432</td>
+                <td>15/11/2024</td>
+                <td>230000</td>
+                <td>Rodízio completo com substituição de dois pneus.</td>
+              </tr>
+              <tr>
+                <td>BCA-7896</td>
+                <td>18/11/2024</td>
+                <td>240000</td>
+                <td>Rodízio realizado após inspeção de segurança.</td>
+              </tr>
+            </tbody>
+          </table>
+        </CCardBody>
+      </CCard>
+    </>
   )
 }
 
